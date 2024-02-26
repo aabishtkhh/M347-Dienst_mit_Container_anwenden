@@ -3,7 +3,7 @@ FROM php:8.0-apache
 
 ENV DB_HOST=localhost:3306
 ENV DB_USER=db_user
-ENV DB_PASSWORD=db_password
+ENV DB_PASSWORD=root_password
 ENV DB_NAME=mydatabase
 
 # Kopiert die PHP-Dateien in den entsprechenden Ordner

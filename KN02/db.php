@@ -1,7 +1,7 @@
 <?php
-$servername = "kn02b-db";
+$servername = "localhost:3306";
 $username = "db_user";
-$password = "db_password"; 
+$password = "root_password"; 
 $dbname = "mydatabase";
 
 // Create connection
