@@ -1,0 +1,6 @@
+# Verwendet das offizielle nginx-Image als Basis
+FROM nginx 
+# Kopiert den Inhalt von static-html-directory ins Container-Verzeichnis /var/www/html
+COPY helloworld.html /usr/share/nginx/html/helloworld.html
+# Öffnet Port 80 im Container für eingehende HTTP-Anfragen
+EXPOSE 80
