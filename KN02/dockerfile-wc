@@ -7,12 +7,13 @@ ENV DB_PASSWORD=root_password
 ENV DB_NAME=mydatabase
 
 # Kopiert die PHP-Dateien in den entsprechenden Ordner
-COPY info.php /var/www/html/info.php
-COPY db.php /var/www/html/db.php
+COPY *.php /var/www/html/
+
 # Installiert das PHP mysqli-Modul
 RUN docker-php-ext-install mysqli
 
-# Call db.php during the build process to configure it#
-RUN php -f /var/www/html/db.php > /var/www/html/db_output.html
+# Call db.php during the build process to configure it
+#For test
+# RUN php -f /var/www/html/db.php > /var/www/html/db_output.html
 
 EXPOSE 80

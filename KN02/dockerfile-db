@@ -2,6 +2,8 @@
 FROM mariadb
 # Setzt Umgebungsvariablen für Benutzername und Passwort
 ENV MYSQL_ROOT_PASSWORD=root_password
+
+# Für diesen Auftrag nicht nötig
 ENV MYSQL_DATABASE=mydatabase
 ENV MYSQL_USER=root
 ENV MYSQL_PASSWORD=db_password
