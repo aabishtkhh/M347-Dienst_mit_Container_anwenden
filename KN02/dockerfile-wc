@@ -1,7 +1,7 @@
 # Verwendet das offizielle PHP-Image mit Apache als Basis
 FROM php:8.0-apache
 
-ENV DB_HOST=localhost:3306
+ENV DB_HOST=kn02b-db
 ENV DB_USER=root
 ENV DB_PASSWORD=root_password
 ENV DB_NAME=mydatabase
@@ -12,7 +12,7 @@ COPY db.php /var/www/html/db.php
 # Installiert das PHP mysqli-Modul
 RUN docker-php-ext-install mysqli
 
-# Call db.php during the build process to configure it# 
+# Call db.php during the build process to configure it#
 RUN php -f /var/www/html/db.php > /var/www/html/db_output.html
 
 EXPOSE 80
