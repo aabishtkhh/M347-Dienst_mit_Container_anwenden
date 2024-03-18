@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  m347-kn04a-db:
+    image: mariadb:latest
+    container_name: m347-kn04a-db
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=example
+    networks:
+      - m347-kn04a-network
+
+  m347-kn04a-web:
+    image: aabishkhan/kn02b-web:latest
+    container_name: m347-kn04a-web
+    ports:
+      - "5600:80"
+    depends_on:
+      - m347-kn04a-db
+    networks:
+      - m347-kn04a-network
+
+networks:
+  m347-kn04a-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16 # 172.10.0.0/16
+          ip_range: 172.20.10.0/24 # 172.10.5.0/24
+          gateway: 172.20.5.254 # 172.10.5.254
