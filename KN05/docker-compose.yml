@@ -1,0 +1,27 @@
+version: '3.8'
+name: m347-kn05c-compose
+services:
+  container-1:
+    image: nginx:latest
+    container_name: kn05c-first-con
+    volumes:
+      - type: volume
+        source: top-volume
+        target: "/var/www/html/"
+      - type: bind
+        source: "C:/TBZ-Source/PLJ/M347-Dienst_mit_Container_anwenden/KN05"
+        target: /usr/share/nginx/html
+      - type: tmpfs
+        target: "/random-dir"
+    ports:
+      - "2100:80"
+  container-2:
+    image: nginx:latest
+    container_name: kn05c-sec-con
+    volumes:
+      - top-volume:/usr/share/nginx/html:rw
+    ports:
+      - "2200:80"
+volumes:
+  top-volume: {}
+
